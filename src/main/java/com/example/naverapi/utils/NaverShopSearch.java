@@ -1,8 +1,16 @@
 package com.example.naverapi.utils;
 
+import com.example.naverapi.dto.ItemDto;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+
+@Component
 public class NaverShopSearch {
 
     public String search (String query) {
@@ -17,15 +25,32 @@ public class NaverShopSearch {
         HttpStatus httpStatus = responseEntity.getStatusCode();
         int status = httpStatus.value();
         String response = responseEntity.getBody();
-        System.out.println("Response status: " + status);
-        System.out.println(response);
+        //System.out.println("Response status: " + status);
+        //System.out.println(response);
 
         return response;
     }
 
-    public static void main(String[] args) {
-        NaverShopSearch naverShopSearch = new NaverShopSearch();
-        naverShopSearch.search("아이맥");
+    public List<ItemDto> fromJSONtoItems (String result) {
+        JSONObject rjson = new JSONObject(result);
+        JSONArray items = rjson.getJSONArray("items");
+
+        List<ItemDto> ret = new ArrayList<>();
+
+        for (int i = 0; i < items.length(); i++) {
+            JSONObject itemJson = items.getJSONObject(i);
+            //System.out.println(itemJson);
+            ItemDto itemDto = new ItemDto(itemJson);
+            ret.add(itemDto);
+        }
+
+        return ret;
     }
+
+//    public static void main(String[] args) {
+//        NaverShopSearch naverShopSearch = new NaverShopSearch();
+//        String ret = naverShopSearch.search("아이맥");
+//        naverShopSearch.fromJSONtoItems(ret);
+//    }
 
 }
