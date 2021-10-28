@@ -52,14 +52,41 @@
     <div id="search-result-box">
         <div class="search-itemDto">
             <div class="search-itemDto-left">
-                <img src="">
+                <img src="https://shopping-phinf.pstatic.net/main_2399616/23996167522.20200922132620.jpg?type=f300" alt="">
             </div>
             <div class="search-itemDto-center">
-
+                <div>Apple IMAC 2020형</div>
+                <div class="price">
+                    2,289,790
+                    <span class="unit">원</span>
+                </div>
             </div>
+            <div class="search-itemDto-right">
+                <img src="" alt="" onclick="addProduct()">
+            </div>
+        </div>
+    </div>
+    <div id="container" class="popup-container">
+        <div class="popup">
+            <button id="close" class="close">
+                X
+            </button>
+            <h1>최저가 설정하기</h1>
+            <p>최저가를 설정해두면 선택하신 상품의 최저가가 떳을 때 <br/> 표시해드립니다!</p>
+            <div>
+                <input type="text" id="myprice" placeholder="200,000">원
+            </div>
+            <button class="cta" onclick="setMyprice()"> 설정하기</button>
         </div>
     </div>
 </div>
 
 </body>
 </html>
+
+
+
+
+
+
+
