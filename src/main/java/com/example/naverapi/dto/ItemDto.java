@@ -3,8 +3,6 @@ package com.example.naverapi.dto;
 import lombok.Getter;
 import org.json.JSONObject;
 
-import javax.rmi.CORBA.Tie;
-
 @Getter
 public class ItemDto {
     private String title;
@@ -16,6 +14,6 @@ public class ItemDto {
         this.title = itemJson.getString("title");
         this.link = itemJson.getString("link");
         this.image = itemJson.getString("image");
-        this.image = itemJson.getString("lprice");
+        this.lprice = itemJson.getInt("lprice");
     }
 }
