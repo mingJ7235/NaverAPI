@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     $('.nav div.nav-see').on('click', function (e){
         $('div.nav-see').addClass('active');
-        $('div.nav-search').removeClass('active');
+        $('div.nav-search').removeClass('active')
 
         $('#see-area').show();
         $('#search-area').hide();
