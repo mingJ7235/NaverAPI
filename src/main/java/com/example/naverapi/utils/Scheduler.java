@@ -34,10 +34,7 @@ public class Scheduler {
 //            ItemDto itemDto = itemDtoList.get(i);
             ItemDto itemDto = itemDtoList.get(0);
             Long id = p.getId();
-            productService.
-
-
+            productService.updateBySearch(id, itemDto);
         }
-
     }
 }
