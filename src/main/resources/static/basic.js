@@ -6,11 +6,11 @@ $(document).ready(function () {
             execSearch();
         }
     });
-    $('#close').on('click', function (){
+    $('#close').on('click', function () {
         $('#container').removeClass('active');
     })
 
-    $('.nav div.nav-see').on('click', function (){
+    $('.nav div.nav-see').on('click', function () {
         $('div.nav-see').addClass('active');
         $('div.nav-search').removeClass('active');
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
         $('#search-area').hide();
     })
 
-    $('.nav div.nav-search').on('click', function (){
+    $('.nav div.nav-search').on('click', function () {
         $('div.nav-see').removeClass('active');
         $('div.nav-search').addClass('active');
 
@@ -162,6 +162,13 @@ function setMyPrice() {
     $.ajax({
         type : "PUT",
         url : `/api/products/${targetId}`,
+        contentType: 'application/json',
+        data: JSON.stringify({myPrice: myPrice}),
+        success: function (response) {
+            $('#container').removeClass('active');
+            alert('성공적으로 등록되었습니다');
+            window.location.reload();
+        }
     })
 
 }
