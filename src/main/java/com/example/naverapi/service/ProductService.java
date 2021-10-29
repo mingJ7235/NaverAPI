@@ -1,5 +1,6 @@
 package com.example.naverapi.service;
 
+import com.example.naverapi.dto.ItemDto;
 import com.example.naverapi.dto.ProductMypriceRequestDto;
 import com.example.naverapi.entity.Product;
 import com.example.naverapi.repo.ProductRepository;
@@ -17,6 +18,12 @@ public class ProductService {
     public Long update (Long id, ProductMypriceRequestDto requestDto) {
         Product product = productRepository.findById(id).orElseThrow(NullPointerException::new);
         product.update(requestDto);
+        return id;
+    }
+
+    public Long updateBySearch (Long id, ItemDto itemDto) {
+        Product product = productRepository.findById(id).orElseThrow(NullPointerException::new);
+        product.updateByItemDto (itemDto);
         return id;
     }
 }

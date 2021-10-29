@@ -1,5 +1,6 @@
 package com.example.naverapi.entity;
 
+import com.example.naverapi.dto.ItemDto;
 import com.example.naverapi.dto.ProductMypriceRequestDto;
 import com.example.naverapi.dto.ProductRequestDto;
 import lombok.Getter;
@@ -43,5 +44,12 @@ public class Product extends Timestamped{
         this.myprice = requestDto.getMyprice();
     }
 
+
+    public void updateByItemDto(ItemDto itemDto) {
+        this.title = itemDto.getTitle();
+        this.image = itemDto.getImage();
+        this.lprice = itemDto.getLprice();
+        this.link = itemDto.getLink();
+    }
 
 }
