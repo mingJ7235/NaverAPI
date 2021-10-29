@@ -151,4 +151,17 @@ function addProductItem (product) {
             </div>`;
 }
 
-function setMyPrice() {}
+function setMyPrice() {
+    let myPrice = $('#myprice').val();
+
+    if (myPrice == '') {
+        alert('가격을 입력해주세요')
+        return;
+    }
+
+    $.ajax({
+        type : "PUT",
+        url : `/api/products/${targetId}`,
+    })
+
+}
