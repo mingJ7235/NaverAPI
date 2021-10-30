@@ -96,6 +96,8 @@ function addProduct (itemDto) {
 
     //1. POST /api/products 에 관심 상품 생성 요청
 
+    console.log('addProduct');
+
     $.ajax ({
         type: 'POST',
         url: '/api/products',
